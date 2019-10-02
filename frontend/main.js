@@ -50,7 +50,7 @@ function addHoroscopeToPage(horoscopes) {
 formSubmit.addEventListener('submit', function(e) {
     e.preventDefault();
     convertUserBirthday(e.target)
-    document.getElementById('main-form').reset()
+    document.getElementById('horoscope-form').reset()
 })
 
 function convertUserBirthday(data) {
@@ -90,7 +90,7 @@ function checkDates(signs, usersBirthday) {
 function getDailyHoroscope(horoscopes, usersSign) {
     for( var key in horoscopes.dailyhoroscope) {
         if(key == usersSign) {
-            let horoscopeQuote = horoscopes.dailyhoroscope[key].split('<a href=', 1);
+            let horoscopeQuote = "Daily Horoscope: " + horoscopes.dailyhoroscope[key].split('<a href=', 1);
             let yourSignContainer = document.getElementById('content-container');
             
             let horoscopeDates = document.createElement('p')
@@ -103,7 +103,7 @@ function getDailyHoroscope(horoscopes, usersSign) {
 }
 
 function clearContainers() {
-    let imageContainer = document.getElementById('image-container')
+    let imageContainer = document.getElementById('container-9-zodiac-image')
     let titleContainer = document.getElementById('title-container')
     let contentContainer = document.getElementById('content-container')
 
@@ -116,7 +116,7 @@ function clearContainers() {
 }
 
 function  createHoroscopeImage(usersSign) {
-    let imageContainer = document.getElementById('image-container')
+    let imageContainer = document.getElementById('container-9-zodiac-image')
     let horoscopeImage = document.createElement('img')
     horoscopeImage.setAttribute('src', `./images/${usersSign.toLowerCase()}_constellation.png`)
     horoscopeImage.width = '250'
@@ -128,7 +128,7 @@ function  createHoroscopeImage(usersSign) {
 function addHoroscopeInfo(usersSign) {
     let titleContainer = document.getElementById('title-container')
     let horoscopeTitle = document.createElement('h3')
-    horoscopeTitle.innerText = usersSign
+    horoscopeTitle.innerText = "Your Sign: " + usersSign
 
     titleContainer.append(horoscopeTitle)
 }
