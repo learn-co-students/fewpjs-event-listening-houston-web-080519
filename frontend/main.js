@@ -1,13 +1,14 @@
 
-
 const EXTERNAL_API = 'https://www.horoscopes-and-astrology.com/json'
 const OUR_HOROSCOPE_API = 'http://localhost:3000/signs'
 const MERCURY_API = 'https://mercuryretrogradeapi.com/'
 const horoscopeList = document.getElementById('horoscope-list');
 const formSubmit = document.getElementById("main-form");
+//
 
-const taurus_picture = './images/taurus_constellation.png'
-const aquaris_picture = ''
+
+document.addEventListener("DOMContentLoaded", function(e) {
+})
 
 // Mercury API & Functions
 fetch(MERCURY_API)
@@ -33,6 +34,7 @@ fetch(EXTERNAL_API)
 
 function getAllHoroscopes(horoscopes) {
     addHoroscopeToPage(horoscopes)
+    console.log(horoscopes)
 }
 
 function addHoroscopeToPage(horoscopes) {
@@ -48,6 +50,7 @@ function addHoroscopeToPage(horoscopes) {
 formSubmit.addEventListener('submit', function(e) {
     e.preventDefault();
     convertUserBirthday(e.target)
+    document.getElementById('main-form').reset()
 })
 
 function convertUserBirthday(data) {
@@ -72,10 +75,11 @@ function checkDates(signs, usersBirthday) {
         startDate.toDateString();
         endDate.toDateString();
         usersBirthday.toDateString();
-
         if(usersBirthday >= startDate && usersBirthday <= endDate) {
             let usersSign = sign.title;
-            createHoroscopeElements(sign, usersSign)
+            clearContainers()
+            createHoroscopeImage(usersSign)
+            addHoroscopeInfo(usersSign)
             fetch(EXTERNAL_API)
             .then(resp => resp.json())
             .then(horoscopes => getDailyHoroscope(horoscopes, usersSign, sign))
@@ -83,27 +87,48 @@ function checkDates(signs, usersBirthday) {
     })
 }
 
-function getDailyHoroscope(horoscopes, usersSign, sign) {
+function getDailyHoroscope(horoscopes, usersSign) {
     for( var key in horoscopes.dailyhoroscope) {
         if(key == usersSign) {
-            let dailyHoroscope = horoscopes.dailyhoroscope[key].split('<a href=', 1);
-            let yourSignContainer = document.getElementById('your-sign');
-            yourSignContainer.append(dailyHoroscope)
+            let horoscopeQuote = horoscopes.dailyhoroscope[key].split('<a href=', 1);
+            let yourSignContainer = document.getElementById('content-container');
+            
+            let horoscopeDates = document.createElement('p')
+            horoscopeDates.innerText = horoscopes.dates[key];
 
+            yourSignContainer.append(horoscopeDates)
+            yourSignContainer.append(horoscopeQuote)
         }
     }
 }
 
-function  createHoroscopeElements(sign, usersSign) {
-    let horoscopeImageContainer = document.getElementById('constellation-image')
-    let horoscopeImage = document.createElement('img')
-    horoscopeImage.setAttribute('src', `${usersSign.toLowerCase()}_picture`)
+function clearContainers() {
+    let imageContainer = document.getElementById('image-container')
+    let titleContainer = document.getElementById('title-container')
+    let contentContainer = document.getElementById('content-container')
 
-    let horoscopeName = document.createElement('h3')
-    horoscopeName.innerText = usersSign
-    
-    let yourSignContainer = document.getElementById('your-sign');
-    yourSignContainer.append(horoscopeName)
-    horoscopeImageContainer.append(horoscopeImage)
+    let containerArray = [imageContainer, titleContainer, contentContainer]
+    containerArray.forEach(container => {
+        while (container.hasChildNodes()) {
+            container.removeChild(container.lastChild);
+        }
+    })
 }
 
+function  createHoroscopeImage(usersSign) {
+    let imageContainer = document.getElementById('image-container')
+    let horoscopeImage = document.createElement('img')
+    horoscopeImage.setAttribute('src', `./images/${usersSign.toLowerCase()}_constellation.png`)
+    horoscopeImage.width = '250'
+    horoscopeImage.heigh = '250'
+    imageContainer.append(horoscopeImage)
+}
+
+
+function addHoroscopeInfo(usersSign) {
+    let titleContainer = document.getElementById('title-container')
+    let horoscopeTitle = document.createElement('h3')
+    horoscopeTitle.innerText = usersSign
+
+    titleContainer.append(horoscopeTitle)
+}

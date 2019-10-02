@@ -8,3 +8,62 @@
     margin-right: auto; 
     margin-left: auto;
   }
+
+#your-sign-top-container {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid red;
+}
+
+#content-main-container {
+  display: flex;
+  flex-direction: column;
+}
+
+#form-container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  opacity: 0.5;
+  border: 1px solid red;
+  left: 300px;
+  top: 200px;
+  width: 250px;
+  }
+
+.form-container-header {
+    text-align: center;
+}
+
+#form-container-form {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid blue;
+}
+
+.form-container-input {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid green;
+}
+
+.form-container-submit {
+  text-align: center;
+}
+
+#signs {
+  background-color: white;
+  opacity: 0.5;
+}
+
+.resizedBox {
+  width: 30px;
+  height: 30px;
+  border: 2px;
+}
+.yearBox {
+  width: 50px;
+  height: 30px;
+  border: 2px;
+}

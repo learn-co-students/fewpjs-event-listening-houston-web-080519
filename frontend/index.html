@@ -4,28 +4,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- <link rel='stylesheet' href='./background.css'> -->
   <link rel='stylesheet' href="./styles.css">
   <title>Listening to Nodes</title>
   <style>
-    /* div {
-      border: 1px solid red;
-      padding: 6px;
-      min-height: 12px;
-    } */
   </style>
 </head>
 <body>
+  <div class="stars">
+  <div class="twinkling">
   <main id="main">
     <div id='form-container'>
-     <form id='main-form'>
-       <label>Month:</label>
-       <input type='number' name='month' placeholder='Ex: 05'>
-       <label>Day:</label>
-       <input type='number' name='day' placeholder='Ex: 21'>
-       <label>Year:</label>
-       <input type='number' name='year' placeholder="Ex: 1990">
-      <input type='submit' value='See Your Sign' id='submit'>
-     </form>
+      <div class='form-container-header'>
+        <p> Find Your Sign! </p>
+      </div>
+      <div id='form-container-form'>
+        <form id='main-form'>
+          <div class='form-container-input'>
+            <input type='number' name='month' class='resizedBox' placeholder=''>
+            <input type='number' name='day' class='resizedBox' placeholder=''>
+            <input type='number' name='year' class='yearBox' placeholder="">
+          </div>
+        </div>
+          <div class='form-container-submit'>
+            <input type='submit' value='See Your Sign' id='submit'>
+          </div>
+        </form>
    </div>
   </main>
   <div id='retro'>
@@ -34,16 +38,23 @@
   <div id='signs'>
     <ul id='horoscope-list'><strong>Signs</strong></ul>
   </div>
-  <div id='your-sign'>
-    <div id='title'>
-
+  <div id='your-sign-top-container'>
+    <div id='image-container'>
     </div>
-    <div id='constellation-image'>
+    <div id='content-main-container'>
+      <div id='title-container'>
 
+      </div>
+      <div id='dates-container'>
+
+      </div>
+      <div id='content-container'>
+
+      </div>
     </div>
   </div>
-
-  <div id="circle"></div>
+</div>
+</div>
   <script type="text/javascript" src="main.js"></script>
 </body>
 </html>
