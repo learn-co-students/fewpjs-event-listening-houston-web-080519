@@ -90,7 +90,7 @@ function checkDates(signs, usersBirthday) {
 function getDailyHoroscope(horoscopes, usersSign) {
     for( var key in horoscopes.dailyhoroscope) {
         if(key == usersSign) {
-            let horoscopeQuote = horoscopes.dailyhoroscope[key].split('<a href=', 1);
+            let horoscopeQuote = "Daily Horoscope: " + horoscopes.dailyhoroscope[key].split('<a href=', 1);
             let yourSignContainer = document.getElementById('content-container');
             
             let horoscopeDates = document.createElement('p')
@@ -128,7 +128,7 @@ function  createHoroscopeImage(usersSign) {
 function addHoroscopeInfo(usersSign) {
     let titleContainer = document.getElementById('title-container')
     let horoscopeTitle = document.createElement('h3')
-    horoscopeTitle.innerText = usersSign
+    horoscopeTitle.innerText = "Your Sign: " + usersSign
 
     titleContainer.append(horoscopeTitle)
 }

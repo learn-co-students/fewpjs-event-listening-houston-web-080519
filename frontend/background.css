@@ -79,6 +79,8 @@ header a, a:visited {
 
 .twinkling{
   background:transparent url(http://www.script-tutorials.com/demos/360/images/twinkling.png) repeat top center;
+  backrgound-size: cover;
+  overflow: scroll;
   z-index:1;
 
   -moz-animation:move-twink-back 200s linear infinite;
