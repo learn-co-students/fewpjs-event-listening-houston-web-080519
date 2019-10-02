@@ -3,7 +3,7 @@ const EXTERNAL_API = 'https://www.horoscopes-and-astrology.com/json'
 const OUR_HOROSCOPE_API = 'http://localhost:3000/signs'
 const MERCURY_API = 'https://mercuryretrogradeapi.com/'
 const horoscopeList = document.getElementById('horoscope-list');
-const formSubmit = document.getElementById("main-form");
+const formSubmit = document.getElementById("horoscope-form");
 //
 
 
@@ -16,7 +16,7 @@ fetch(MERCURY_API)
 .then(data => isMercuryRetro(data))
 
 function isMercuryRetro(data) {
-    const retroContainer = document.getElementById('retro');
+    const retroContainer = document.getElementById('container-5-retrograde');
     if(data.is_retrograde == true) {
         let yes = document.createElement('p');
         yes.innerText = "YES!"

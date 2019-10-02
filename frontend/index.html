@@ -11,34 +11,51 @@
   </style>
 </head>
 <body>
-  <div class="stars">
-  <div class="twinkling">
-  <main id="main">
-    <div id='form-container'>
-      <div class='form-container-header'>
-        <p> Find Your Sign! </p>
+<div class="stars">
+ <div class="twinkling">
+  <div class='main-container-1'>
+    <div class='container-2-header'>
+
+    </div>
+    <div class='container-3-body'>
+      <div class='container-6-navigation'>
+          <div id='signs'>
+              <ul id='horoscope-list'><strong>Signs</strong></ul>
+            </div>
       </div>
-      <div id='form-container-form'>
-        <form id='main-form'>
-          <div class='form-container-input'>
-            <input type='number' name='month' class='resizedBox' placeholder=''>
-            <input type='number' name='day' class='resizedBox' placeholder=''>
-            <input type='number' name='year' class='yearBox' placeholder="">
+      <div class='container-7-horoscope-circle'>
+        <div class='container-8-form'>
+          <form id='horoscope-form'>
+              <div class='form-container-input'>
+                <input type='number' name='month' class='resizedBox' placeholder=''>
+                <input type='number' name='day' class='resizedBox' placeholder=''>
+                <input type='number' name='year' class='yearBox' placeholder="">
+              </div>
+              <div class='form-container-submit'>
+                <input type='submit' value='See Your Sign' id='submit'>
+              </div>
+          </form>
           </div>
+      </div>
+    </div>
+    <div class='container-4-zodiac'>
+       <div id='image-container'>
         </div>
-          <div class='form-container-submit'>
-            <input type='submit' value='See Your Sign' id='submit'>
+          <div id='content-main-container'>
+            <div id='title-container'>
+  
+            </div>
+            <div id='dates-container'>
+  
+            </div>
+            <div id='content-container'>
+  
+            </div>
           </div>
+
         </form>
    </div>
   </main>
-  <div id='retro'>
-    <h2> Is Mercury in Retrograde? </h2>
-</div><br>
-  <div id='signs'>
-    <ul id='horoscope-list'><strong>Signs</strong></ul>
-  </div>
-
   <ul class="sliceWrapper">
     <li>
       <div class="slice"></div>
@@ -80,24 +97,11 @@
       <div class="slice"></div>
     </li>
   </ul>
-
-
-  <div id='your-sign-top-container'>
-    <div id='image-container'>
-    </div>
-    <div id='content-main-container'>
-      <div id='title-container'>
-
-      </div>
-      <div id='dates-container'>
-
-      </div>
-      <div id='content-container'>
-
-      </div>
+    <div class='container-5-retrograde'>
+        <h2> Is Mercury in Retrograde? </h2>
     </div>
   </div>
-</div>
+ </div>
 </div>
   <script type="text/javascript" src="main.js"></script>
 </body>
