@@ -1,6 +1,10 @@
-
 #container-4-zodiac {
     display: flex;
     flex-direction: row;
     border: 3px solid orangered;
+    opacity: 0.5;
   }
+
+#container-9-zodiac-image {
+    padding: 3px;
+}
