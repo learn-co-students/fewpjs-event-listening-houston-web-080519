@@ -79,6 +79,8 @@ header a, a:visited {
 
 .twinkling{
   background:transparent url(http://www.script-tutorials.com/demos/360/images/twinkling.png) repeat top center;
+  background-size: cover;
+  overflow: scroll;
   z-index:1;
 
   -moz-animation:move-twink-back 200s linear infinite;
@@ -88,7 +90,7 @@ header a, a:visited {
   animation:move-twink-back 200s linear infinite;
 }
 
-.clouds{
+/* .clouds{
     background:transparent url(http://www.script-tutorials.com/demos/360/images/clouds3.png) repeat top center;
     z-index:3;
 
@@ -97,4 +99,4 @@ header a, a:visited {
   -o-animation:move-clouds-back 200s linear infinite;
   -webkit-animation:move-clouds-back 200s linear infinite;
   animation:move-clouds-back 200s linear infinite;
-}
+} */
