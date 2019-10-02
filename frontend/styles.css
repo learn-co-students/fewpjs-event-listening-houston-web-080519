@@ -59,7 +59,48 @@
 }
 
 
-.sliceWrapper {
+
+
+
+.sidenav {
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  margin-left: 160px; /* Same as the width of the sidenav */
+  font-size: 28px; /* Increased text to enable scrolling */
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+
+
+
+/* .sliceWrapper {
   position: relative;
   border: 1px solid black;
   padding: 0;
@@ -77,6 +118,7 @@
   left: -100%;
   width: 200%;
   height: 200%;
+  z-index: 5;
 
 }
 
@@ -139,49 +181,61 @@ li:nth-child(12) {
 }
 
 li:first-child .slice {
-  background: green;
+  background-image: url("images/aquarius_constellation.png");
+  object-fit: scale-down;
 }
 
 li:nth-child(2) .slice {
-  background: tomato;
+  background-image: url("images/aries_constellation.png");
+  object-fit: fill;
 }
 
 li:nth-child(3) .slice {
-  background: aqua;
+  background-image: url("images/cancer_constellation.png");
+  object-fit: fill;
 }
 
 li:nth-child(4) .slice {
-  background: yellow;
+  background-image: url("images/capricorn_constellation.png");
+  object-fit: fill;
 }
 
 li:nth-child(5) .slice {
-  background: blue;
+  background-image: url("images/gemini_constellation.png");
+  object-fit: fill;
 }
 
 li:nth-child(6) .slice {
-  background: green;
+  background-image: url("images/leo_constellation.png");
+  object-fit: fill;
 }
 
 li:nth-child(7) .slice {
-  background: tomato;
+  background-image: url("images/libra_constellation.png");
+  object-fit: fill;
 }
 
 li:nth-child(8) .slice {
-  background: aqua;
+  background-image: url("images/pisces_constellation.png");
+  object-fit: fill;
 }
 
 li:nth-child(9) .slice {
-  background: yellow;
+  background-image: url("images/sagittarius_constellation.png");
+  object-fit: fill;
 }
 
 li:nth-child(10) .slice {
-  background: blue;
+  background-image: url("images/scorpio_constellation.png");
+  object-fit: fill;
 }
 
 li:nth-child(11) .slice {
-  background: green;
+  background-image: url("images/taurus_constellation.png");
+  object-fit: fill;
 }
 
 li:nth-child(12) .slice {
-  background: tomato;
-}
+  background-image: url("images/virgo_constellation.png");
+  object-fit: fill;
+} */
