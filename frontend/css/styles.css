@@ -6,11 +6,11 @@ body {
 canvas {
   display: block;
   vertical-align: bottom;
+  position: absolute;
 }
 /* ---- particles.js container ---- */
  
 #particles-js {
-  position: absolute;
   width: 100%;
   height: 100%;
 }
@@ -89,7 +89,7 @@ canvas {
 
 #main-container-1 {
   border: 4px solid red;
-  height: 150vh;
+  height: 155vh;
 }
 
 #container-2-header {
@@ -100,8 +100,14 @@ canvas {
 
 #container-3-body {
   border: 3px solid violet;
-  height: 98vh;
+  height: 106vh;
 }
+
+.circle-container {
+  position: relative;
+  top: 112px;
+}
+
 
 #container-5-retrograde {
   border: 4px solid orange;
