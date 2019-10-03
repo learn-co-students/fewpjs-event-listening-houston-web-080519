@@ -16,14 +16,12 @@ fetch(MERCURY_API)
 
 function isMercuryRetro(data) {
     const retroContainer = document.getElementById('container-5-retrograde');
+    const mercuryRetro = document.getElementById('retrograde');
+
     if(data.is_retrograde == true) {
-        let yes = document.createElement('p');
-        yes.innerText = "YES!"
-        retroContainer.append(yes);
+        mercuryRetro.setAttribute('href', './mercury-yes.html')
     } else {
-        let no = document.createElement('p');
-        no.innerText = "NO!"
-        retroContainer.append(no);
+        mercuryRetro.setAttribute('href', './mercury-no.html')
     }
 }
 // Horoscope API's and functions
@@ -143,116 +141,115 @@ function attachHoroscopeEventListeners(horoscopes) {
 }
 // End of event listener code
 
-// Code for the stars background
 particlesJS("particles-js", {
-    "particles": {
-      "number": {
-        "value": 355,
-        "density": {
-          "enable": true,
-          "value_area": 789.1476416322727
-        }
+  "particles": {
+    "number": {
+      "value": 355,
+      "density": {
+        "enable": true,
+        "value_area": 789.1476416322727
+      }
+    },
+    "color": {
+      "value": "#ffffff"
+    },
+    "shape": {
+      "type": "circle",
+      "stroke": {
+        "width": 0,
+        "color": "#000000"
       },
-      "color": {
-        "value": "#ffffff"
+      "polygon": {
+        "nb_sides": 5
       },
-      "shape": {
-        "type": "circle",
-        "stroke": {
-          "width": 0,
-          "color": "#000000"
-        },
-        "polygon": {
-          "nb_sides": 5
-        },
-        "image": {
-          "src": "img/github.svg",
-          "width": 100,
-          "height": 100
-        }
-      },
-      "opacity": {
-        "value": 0.48927153781200905,
-        "random": false,
-        "anim": {
-          "enable": true,
-          "speed": 0.2,
-          "opacity_min": 0,
-          "sync": false
-        }
-      },
-      "size": {
-        "value": 2,
-        "random": true,
-        "anim": {
-          "enable": true,
-          "speed": 2,
-          "size_min": 0,
-          "sync": false
-        }
-      },
-      "line_linked": {
-        "enable": false,
-        "distance": 150,
-        "color": "#ffffff",
-        "opacity": 0.4,
-        "width": 1
-      },
-      "move": {
+      "image": {
+        "src": "img/github.svg",
+        "width": 100,
+        "height": 100
+      }
+    },
+    "opacity": {
+      "value": 0.48927153781200905,
+      "random": false,
+      "anim": {
         "enable": true,
         "speed": 0.2,
-        "direction": "none",
-        "random": true,
-        "straight": false,
-        "out_mode": "out",
-        "bounce": false,
-        "attract": {
-          "enable": false,
-          "rotateX": 600,
-          "rotateY": 1200
-        }
+        "opacity_min": 0,
+        "sync": false
       }
     },
-    "interactivity": {
-      "detect_on": "canvas",
-      "events": {
-        "onhover": {
-          "enable": true,
-          "mode": "bubble"
-        },
-        "onclick": {
-          "enable": true,
-          "mode": "push"
-        },
-        "resize": true
+    "size": {
+      "value": 2,
+      "random": true,
+      "anim": {
+        "enable": true,
+        "speed": 2,
+        "size_min": 0,
+        "sync": false
+      }
+    },
+    "line_linked": {
+      "enable": false,
+      "distance": 150,
+      "color": "#ffffff",
+      "opacity": 0.4,
+      "width": 1
+    },
+    "move": {
+      "enable": true,
+      "speed": 0.2,
+      "direction": "none",
+      "random": true,
+      "straight": false,
+      "out_mode": "out",
+      "bounce": false,
+      "attract": {
+        "enable": false,
+        "rotateX": 600,
+        "rotateY": 1200
+      }
+    }
+  },
+  "interactivity": {
+    "detect_on": "canvas",
+    "events": {
+      "onhover": {
+        "enable": true,
+        "mode": "bubble"
       },
-      "modes": {
-        "grab": {
-          "distance": 400,
-          "line_linked": {
-            "opacity": 1
-          }
-        },
-        "bubble": {
-          "distance": 83.91608391608392,
-          "size": 1,
-          "duration": 3,
-          "opacity": 1,
-          "speed": 3
-        },
-        "repulse": {
-          "distance": 200,
-          "duration": 0.4
-        },
-        "push": {
-          "particles_nb": 4
-        },
-        "remove": {
-          "particles_nb": 2
-        }
-      }
+      "onclick": {
+        "enable": true,
+        "mode": "push"
+      },
+      "resize": true
     },
-    "retina_detect": true
-  });
+    "modes": {
+      "grab": {
+        "distance": 400,
+        "line_linked": {
+          "opacity": 1
+        }
+      },
+      "bubble": {
+        "distance": 83.91608391608392,
+        "size": 1,
+        "duration": 3,
+        "opacity": 1,
+        "speed": 3
+      },
+      "repulse": {
+        "distance": 200,
+        "duration": 0.4
+      },
+      "push": {
+        "particles_nb": 4
+      },
+      "remove": {
+        "particles_nb": 2
+      }
+    }
+  },
+  "retina_detect": true
+});
 // End of stars background code
  
