@@ -4,7 +4,6 @@ const OUR_HOROSCOPE_API = 'http://localhost:3000/signs'
 const MERCURY_API = 'https://mercuryretrogradeapi.com/'
 const horoscopeList = document.getElementById('horoscope-list');
 const formSubmit = document.getElementById("horoscope-form");
-//
 
 
 document.addEventListener("DOMContentLoaded", function(e) {
