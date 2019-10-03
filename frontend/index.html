@@ -7,18 +7,28 @@
   <link rel='stylesheet' href="./css/styles.css">
   <link rel='stylesheet' href='./css/zodiac-styles.css'>
   <link rel='stylesheet' href='./css/zodiac-circle.css'>
+  <link href="https://fonts.googleapis.com/css?family=Cinzel&display=swap" rel="stylesheet">
   <title>Oh My Stars!</title>
   <link rel="icon" href="https://www.freeiconspng.com/uploads/yellow-christmas-star-png-18.png" />
   <style>
   </style>
 </head>
 <body>
+  <!-- particles.js container --> 
+  <div id="particles-js"></div>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script type='text/javscript'  src='stars-background.js'></script>
+  <!-- End of particle.js code  -->
+    
+<div>   
   <div id='main-container-1'>
     <div id='container-2-header'> 
       <h2> OH MY STARS! </h2> 
     </div>
     <div id='container-3-body'>
+      
       <div id='container-7-horoscope-circle'>
+        
         <!-- Code for the circle of constellations -->
           <ul class='circle-container'>
           <li ><img src='https://i.pinimg.com/originals/68/0a/9e/680a9e2ce2dabc4f413c526761ab9d6e.png' class='constellationIcon' id='Aries'>Aries</li>
@@ -49,7 +59,8 @@
           </li>
 
           </ul>
-  <!-- End of circle code -->
+  <!-- End of circle code -->    
+  </div>
 
         
       </div>
@@ -72,10 +83,11 @@
         <h2> Is Mercury in Retrograde? </h2>
     </div>
   </div>
-  </div>
+ 
   <script type="text/javascript" src="main.js"></script>
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-  <script type='text/javscript'  src='./stars-background.js'></script>
+  
+  <script type='text/javscript'  src='stars-background.js'></script>
+</div>
 </div>
 </body>
 </html>
