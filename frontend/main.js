@@ -32,18 +32,7 @@ fetch(EXTERNAL_API)
 .then(horoscopes => getAllHoroscopes(horoscopes))
 
 function getAllHoroscopes(horoscopes) {
-    addHoroscopeToPage(horoscopes)
     console.log(horoscopes)
-}
-
-function addHoroscopeToPage(horoscopes) {
-    for(let i = 0; i < horoscopes.titles.length; i++) {
-        let titleH = document.createElement('li');
-        titleH.innerText = horoscopes.titles[i];
-
-        horoscopeList.append(titleH)
-
-    }
 }
 
 formSubmit.addEventListener('submit', function(e) {
@@ -81,7 +70,10 @@ function checkDates(signs, usersBirthday) {
             addHoroscopeInfo(usersSign)
             fetch(EXTERNAL_API)
             .then(resp => resp.json())
-            .then(horoscopes => getDailyHoroscope(horoscopes, usersSign, sign))
+            .then(horoscopes =>  {
+                attachHoroscopeEventListeners(horoscopes)
+                getDailyHoroscope(horoscopes, usersSign, sign)
+             })
         }
     })
 }
@@ -131,3 +123,22 @@ function addHoroscopeInfo(usersSign) {
 
     titleContainer.append(horoscopeTitle)
 }
+
+// main.js code for event listener for the constellation icons
+fetch(EXTERNAL_API)
+   .then(resp => resp.json())
+   .then(horoscopes => {
+       attachHoroscopeEventListeners(horoscopes)
+   })
+function attachHoroscopeEventListeners(horoscopes) {
+   var icons = document.querySelectorAll(".constellationIcon")
+   for(let i = 0; i < icons.length; i++) {
+       icons[i].addEventListener('click', function() {
+           console.log(this.id)
+           let thisSign = this.id
+           clearContainers()
+           getDailyHoroscope(horoscopes, thisSign)
+       })
+   }
+}
+// End of event listener code
