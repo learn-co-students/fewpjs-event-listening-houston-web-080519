@@ -5,7 +5,7 @@ const MERCURY_API = 'https://mercuryretrogradeapi.com/'
 const horoscopeList = document.getElementById('horoscope-list');
 const formSubmit = document.getElementById("horoscope-form");
 
-
+var mainSign;
 document.addEventListener("DOMContentLoaded", function(e) {
 })
 
@@ -55,28 +55,28 @@ function convertUserBirthday(data) {
 
 function checkDates(signs, usersBirthday) {
     signs.forEach(sign => {
-        var startDate = new Date(`${sign.start_date}`);
-        var endDate = new Date(`${sign.end_date}`);
-
+        mainSign = sign;
+        var startDate = new Date(`${sign.startDate}`);
+        var endDate = new Date(`${sign.endDate}`);
         startDate.toDateString();
         endDate.toDateString();
         usersBirthday.toDateString();
         if(usersBirthday >= startDate && usersBirthday <= endDate) {
-            let usersSign = sign.title;
+            let usersSign = sign.name;
             clearContainers()
             createHoroscopeImage(usersSign)
-            addHoroscopeInfo(usersSign)
+            addHoroscopeInfo(sign, usersSign)
             fetch(EXTERNAL_API)
             .then(resp => resp.json())
             .then(horoscopes =>  {
-                attachHoroscopeEventListeners(horoscopes)
                 getDailyHoroscope(horoscopes, usersSign, sign)
+                attachHoroscopeEventListeners(horoscopes)
              })
         }
     })
 }
 
-function getDailyHoroscope(horoscopes, usersSign) {
+function getDailyHoroscope(horoscopes, usersSign, sign) {
     for( var key in horoscopes.dailyhoroscope) {
         if(key == usersSign) {
             let horoscopeQuote = "Daily Horoscope: " + horoscopes.dailyhoroscope[key].split('<a href=', 1);
@@ -114,11 +114,25 @@ function  createHoroscopeImage(usersSign) {
 }
 
 
-function addHoroscopeInfo(usersSign) {
-    let titleContainer = document.getElementById('title-container')
+function addHoroscopeInfo(sign, usersSign) {
+    let titleContainer = document.getElementById('title-container');
+    let contentContainer = document.getElementById('content-container')
+
     let horoscopeTitle = document.createElement('h3')
     horoscopeTitle.innerText = "Your Sign: " + usersSign
 
+    let horoscopeElement = document.createElement('p')
+    horoscopeElement.innerText = "Element: " + sign.element
+
+    let horoscopeGems = document.createElement('p')
+    horoscopeGems.innerText = "Gems: " + sign.gems
+
+    let horoscopeDescription = document.createElement('p')
+    horoscopeDescription.innerText = sign.description
+
+    contentContainer.append(horoscopeElement)
+    contentContainer.append(horoscopeGems)
+    contentContainer.append(horoscopeDescription)
     titleContainer.append(horoscopeTitle)
 }
 
@@ -128,18 +142,28 @@ fetch(EXTERNAL_API)
    .then(horoscopes => {
        attachHoroscopeEventListeners(horoscopes)
    })
+
 function attachHoroscopeEventListeners(horoscopes) {
    var icons = document.querySelectorAll(".constellationIcon")
    for(let i = 0; i < icons.length; i++) {
        icons[i].addEventListener('click', function() {
-           console.log(this.id)
-           let thisSign = this.id
+          let thisSign = this.id
+          fetch(OUR_HOROSCOPE_API)
+          .then(resp => resp.json())
+          .then(signs => getClickedSign(signs, thisSign))
            clearContainers()
-           createHoroscopeImage(thisSign)
-           addHoroscopeInfo(thisSign)
            getDailyHoroscope(horoscopes, thisSign)
        })
    }
+}
+
+function getClickedSign(signs, thisSign) {
+  signs.forEach(sign => {
+    if(sign.name == thisSign) {
+      createHoroscopeImage(thisSign)
+      addHoroscopeInfo(sign, thisSign)
+    }
+  })
 }
 // End of event listener code
 
