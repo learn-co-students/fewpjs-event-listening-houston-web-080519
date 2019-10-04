@@ -1,95 +1,9 @@
-body {
-        margin: 0;
-        background-color: #17182f;
-        font-family: 'Cinzel', serif;
-      }
-canvas {
-display: block;
-vertical-align: bottom;
-        }
-/* ---- particles.js container ---- */
- 
-#particles-js {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-      }
-       
-      #circle {
-          width: 1000px;
-          height: 1000px;
-          -webkit-border-radius: 25px;
-          -moz-border-radius: 25px;
-          border-radius: 500px;
-          margin-right: auto; 
-          margin-left: auto;
-        }
-       
-      #your-sign-top-container {
-        display: flex;
-        flex-direction: row;
-        border: 1px solid red;
-      }
-       
-      #content-main-container {
-        display: flex;
-        flex-direction: column;
-      }
-       
-      #form-container {
-        position: absolute;
-        display: flex;
-        flex-direction: column;
-        background-color: white;
-        opacity: 0.5;
-        border: 1px solid red;
-        left: 300px;
-        top: 200px;
-        width: 250px;
-        }
-       
-      .form-container-header {
-          text-align: center;
-      }
-       
-      #form-container-form {
-        display: flex;
-        flex-direction: row;
-        border: 1px solid blue;
-      }
-       
-      .form-container-input {
-        display: flex;
-        flex-direction: row;
-        border: 1px solid green;
-      }
-       
-      .form-container-submit {
-        text-align: center;
-      }
-       
-      #signs {
-        background-color: white;
-        opacity: 0.5;
-      }
-       
-      .resizedBox {
-        width: 30px;
-        height: 30px;
-        border: 2px;
-      }
-      .yearBox {
-        width: 50px;
-        height: 30px;
-        border: 2px;
-      }
       
-            
 /* CSS code for the circle of constellations */
 .circle-container {
     position: relative;
     width: 20em;
-    height: 20em;
+    height: 30em;
     border-radius: 50%;
     padding: 0;
     list-style: none;
@@ -160,10 +74,16 @@ vertical-align: bottom;
     -webkit-filter: grayscale(100%);
             filter: grayscale(100%);
     /* border: solid 5px tomato; */
-    transition: .15s;
+    /* transition: .5s;
+    transform: scale(.9);
+    z-index: -1; */
    }
    .circle-container img:hover {
     -webkit-filter: grayscale(0);
-            filter: grayscale(0) brightness(175%);
+            filter: grayscale(0) brightness(500%);
+    transform: scale(1.3)
    }
+   /* .circle-container img:hover:before {
+     transform: scale(1.1)
+   } */
    /* End of the circle code */
