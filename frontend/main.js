@@ -135,6 +135,8 @@ function attachHoroscopeEventListeners(horoscopes) {
            console.log(this.id)
            let thisSign = this.id
            clearContainers()
+           createHoroscopeImage(thisSign)
+           addHoroscopeInfo(thisSign)
            getDailyHoroscope(horoscopes, thisSign)
        })
    }
