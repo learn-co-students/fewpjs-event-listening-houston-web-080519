@@ -40,14 +40,22 @@ formSubmit.addEventListener('submit', function(e) {
 })
 
 function convertUserBirthday(data) {
-    if(data.year.value!= 2019) {
-        data.year.value= 2019
-    } 
-    const usersBirthday = new Date(`${data.year.value}-${data.month.value}-${data.day.value}`)
-    var cutOff = new Date('Tue Jan 19 2019 18:00:00 GMT-0600')
-    if(usersBirthday <= cutOff) {
-        usersBirthday.setFullYear(2020)
+  if(!(data.birthday.value.startsWith("2019"))){
+    data.birthday.value = 2019
+  }
+  const usersBirthday = data.birthday.value
+  var cutOff = new Date('Tue Jan 19 2019 18:00:00 GMT-0600')
+  if(usersBirthday <= cutOff) {
+    usersBirthday.setFullYear(2020)
     }
+    // if(data.year.value!= 2019) {
+    //     data.year.value= 2019
+    // } 
+    // const usersBirthday = new Date(`${data.year.value}-${data.month.value}-${data.day.value}`)
+    // var cutOff = new Date('Tue Jan 19 2019 18:00:00 GMT-0600')
+    // if(usersBirthday <= cutOff) {
+    //     usersBirthday.setFullYear(2020)
+    // }
     fetch(OUR_HOROSCOPE_API)
     .then(resp => resp.json())
     .then(signs => checkDates(signs, usersBirthday))
@@ -58,10 +66,11 @@ function checkDates(signs, usersBirthday) {
         mainSign = sign;
         var startDate = new Date(`${sign.startDate}`);
         var endDate = new Date(`${sign.endDate}`);
+        var birthday = new Date(`${usersBirthday}`);
         startDate.toDateString();
         endDate.toDateString();
-        usersBirthday.toDateString();
-        if(usersBirthday >= startDate && usersBirthday <= endDate) {
+        birthday.toDateString();
+        if(birthday >= startDate && birthday <= endDate) {
             let usersSign = sign.name;
             clearContainers()
             createHoroscopeImage(usersSign)
@@ -81,12 +90,12 @@ function getDailyHoroscope(horoscopes, usersSign, sign) {
         if(key == usersSign) {
             let horoscopeQuote = "Daily Horoscope: " + horoscopes.dailyhoroscope[key].split('<a href=', 1);
             let yourSignContainer = document.getElementById('content-container');
-            
             let horoscopeDates = document.createElement('p')
-            horoscopeDates.innerText = horoscopes.dates[key];
+            horoscopeDates.innerText = "Dates: " + horoscopes.dates[key];
 
-            yourSignContainer.append(horoscopeDates)
-            yourSignContainer.append(horoscopeQuote)
+            yourSignContainer.append(horoscopeDates);
+            yourSignContainer.append(horoscopeQuote);
+            console.log(yourSignContainer)
         }
     }
 }
@@ -103,14 +112,49 @@ function clearContainers() {
         }
     })
 }
-
 function  createHoroscopeImage(usersSign) {
-    let imageContainer = document.getElementById('container-9-zodiac-image')
-    let horoscopeImage = document.createElement('img')
-    horoscopeImage.setAttribute('src', `./images/${usersSign.toLowerCase()}_constellation.png`)
-    horoscopeImage.width = '250'
-    horoscopeImage.heigh = '250'
-    imageContainer.append(horoscopeImage)
+  console.log('you got to the image creator for Aries')
+  let imageContainer = document.getElementById('container-9-zodiac-image')
+  let horoscopeImage = document.createElement('img')
+  horoscopeImage.width = '250'
+  horoscopeImage.heigh = '250'
+  imageContainer.append(horoscopeImage)
+  if (usersSign == 'Aries') {
+      horoscopeImage.setAttribute('src', 'http://www.pngmart.com/files/5/Aries-PNG-File.png')
+  }
+  if (usersSign == 'Taurus') {
+      horoscopeImage.setAttribute('src', 'http://www.pngmart.com/files/5/Taurus-PNG-Free-Download.png')
+  }
+  if (usersSign == 'Gemini') {
+      horoscopeImage.setAttribute('src', 'https://i.dlpng.com/static/png/77532_preview.png')
+  }
+  if (usersSign == 'Cancer') {
+      horoscopeImage.setAttribute('src', 'https://i.dlpng.com/static/png/214378_preview.png')
+  }
+  if (usersSign == 'Leo') {
+      horoscopeImage.setAttribute('src', 'https://i.dlpng.com/static/png/196366_preview.png')
+  }
+  if (usersSign == 'Virgo') {
+      horoscopeImage.setAttribute('src', 'http://www.pngmart.com/files/5/Virgo-PNG-File.png')
+  }
+  if (usersSign == 'Libra') {
+      horoscopeImage.setAttribute('src', 'https://i.dlpng.com/static/png/305676_preview.png')
+  }
+  if (usersSign == 'Scorpio') {
+      horoscopeImage.setAttribute('src', 'https://www.pngarts.com/files/1/Scorpio-Horoscope-Transparent-Background-PNG.png')
+  }
+  if (usersSign == 'Sagittarius') {
+      horoscopeImage.setAttribute('src', 'http://pngimg.com/uploads/sagittarius/sagittarius_PNG71.png')
+  }
+  if (usersSign == 'Capricorn') {
+      horoscopeImage.setAttribute('src', 'http://www.pngmart.com/files/5/Capricorn-PNG-HD.png')
+  }
+  if (usersSign == 'Aquarius') {
+      horoscopeImage.setAttribute('src', 'http://www.pngmart.com/files/5/Aquarius-PNG-Transparent.png')
+  }
+  if (usersSign == 'Pisces') {
+      horoscopeImage.setAttribute('src', 'https://i.dlpng.com/static/png/197038_preview.png')
+  }
 }
 
 
@@ -128,7 +172,7 @@ function addHoroscopeInfo(sign, usersSign) {
     horoscopeGems.innerText = "Gems: " + sign.gems
 
     let horoscopeDescription = document.createElement('p')
-    horoscopeDescription.innerText = sign.description
+    horoscopeDescription.innerText = "Description: " + sign.description
 
     contentContainer.append(horoscopeElement)
     contentContainer.append(horoscopeGems)
@@ -151,8 +195,7 @@ function attachHoroscopeEventListeners(horoscopes) {
           fetch(OUR_HOROSCOPE_API)
           .then(resp => resp.json())
           .then(signs => getClickedSign(signs, thisSign))
-           clearContainers()
-           getDailyHoroscope(horoscopes, thisSign)
+          getDailyHoroscope(horoscopes, thisSign)
        })
    }
 }
@@ -160,6 +203,7 @@ function attachHoroscopeEventListeners(horoscopes) {
 function getClickedSign(signs, thisSign) {
   signs.forEach(sign => {
     if(sign.name == thisSign) {
+      clearContainers()
       createHoroscopeImage(thisSign)
       addHoroscopeInfo(sign, thisSign)
     }

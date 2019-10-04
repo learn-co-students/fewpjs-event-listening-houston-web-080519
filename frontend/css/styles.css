@@ -30,7 +30,6 @@ canvas {
 #your-sign-top-container {
   display: flex;
   flex-direction: row;
-  border: 1px solid red;
 }
  
 #content-main-container {
@@ -96,14 +95,12 @@ canvas {
 }
 
 #container-2-header {
-  border: 3px solid blue;
   width: 100%;
   display: table;
   margin: 0 auto;
 }
 
 .container-2-text {
-  border: 3px solid yellow;
   vertical-align: middle;
   text-align: center;
   display: table-cell;
@@ -118,6 +115,10 @@ canvas {
 .circle-container {
   position: relative;
   top: 120px;
+}
+
+.sign-names {
+  color: white;
 }
 #container-4-zodiac {
   display: flex;
@@ -139,6 +140,21 @@ canvas {
   width: 250px;
   z-index: 10;
   }
+input {
+    border: none;
+    background: #fff;
+    border-radius: 5px;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 13px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #222;
+    display: block;
+    font-family: Poppins;
+    position: relative;
+    z-index: 9;
+   }
   #submit {
     border: none;
     background: #fff;
@@ -163,4 +179,9 @@ canvas {
 #title-container {
   color: white;
   margin-left: 20px;
+}
+
+#select-birth{
+  color: white;
+  text-align: center;
 }
